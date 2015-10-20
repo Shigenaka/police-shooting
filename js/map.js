@@ -48,7 +48,8 @@ var customBuild = function(data) {
   		console.log(link);
   		var circle = L.circleMarker([data['lat'], data['lng']], {
   			color: (data['Hit or Killed?'] == 'Killed') ? 'red' : 'black'
-  		}).bindPopup('<b>Summary</b>: ' + data['Summary'] + ' ' + '<a href="link" target="_blank">(link)</a>' + '<br>' + '<b>City</b>: ' + data['City'] + '<br>' + '<b>State</b>: ' + data['State'])
+  		}).bindPopup('<b>Summary</b>: ' + data['Summary'] + ' ' + '<a href="' + link + '" target="_blank">(link)</a>' + '<br>' + '<b>City</b>: ' + data['City'] + '<br>' + '<b>State</b>: ' + data['State'])
+  		
   		if (data['Race'] == 'Unknown') {
   			circle.addTo(unknown)
   			nonWhiteCount++
