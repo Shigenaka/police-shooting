@@ -17,20 +17,44 @@
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
     <!-- Custom files -->
-    <script type="text/javascript" src="js/map.js"></script>
     <link rel="stylesheet" href="css/main.css"/>
    
   </head>
   <body>
+    <title>Police Shootings</title>
+    <div id="header" class="container">
+      <h1>Police Shootings</h1>
+      <p>This map shows crowdsourced police shooting data from <a href="http://regressing.deadspin.com/deadspin-police-shooting-database-update-were-still-go-1627414202">Deadspin</a>. Circle color indicates if the victim was <b id="hit">hit</b> or <b id="red">killed</b>. Click each point for a summary of the incident.</p>
+    </div>
+
+    <div id="table">
+      <table class="table table-striped">
+        <tr>
+          <td></td>
+          <td id="rowTitle"><b>Men</b></td>
+          <td id="rowTitle"><b>Women/Other</b></td>
+        </tr>
+        <tr>
+          <td><b>White</b></td>
+          <td id="whiteMen"></td>
+          <td id="whiteOther"></td>
+        </tr>
+        <tr>
+          <td><b>Non-white</b></td>
+          <td id="otherMen"></td>
+          <td id="otherOther"></td>
+        </tr>
+      </table>
+    </div>
     <!-- You may want to put your title and additional informaiton here -->
     <div class="container">
       <!-- This is the div that your map will go in.  You'll need to reference its id -->
-      <div id="container"></div>
+      <div id="map"></div>
     </div>
+    <script type="text/javascript" src="js/map.js"></script>
     <script>
-      
       // This is where you should execute your drawMap function
-      
+      drawMap()
     </script>
   </body>
 </html>
