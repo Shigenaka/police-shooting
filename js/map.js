@@ -43,10 +43,12 @@ var customBuild = function(data) {
 	var other = 0;
 
 	$.each(data, function(i, data) {
-  		console.log(data);
+  		//console.log(data);
+  		var link = data['Source Link']
+  		console.log(link);
   		var circle = L.circleMarker([data['lat'], data['lng']], {
   			color: (data['Hit or Killed?'] == 'Killed') ? 'red' : 'black'
-  		}).bindPopup('<b>Summary</b>: ' + data['Summary'] + '<br>' + '<b>City</b>: ' + data['City'] + '<br>' + '<b>State</b>: ' + data['State'])
+  		}).bindPopup('<b>Summary</b>: ' + data['Summary'] + ' ' + '<a href="link" target="_blank">(link)</a>' + '<br>' + '<b>City</b>: ' + data['City'] + '<br>' + '<b>State</b>: ' + data['State'])
   		if (data['Race'] == 'Unknown') {
   			circle.addTo(unknown)
   			nonWhiteCount++
@@ -95,6 +97,13 @@ var customBuild = function(data) {
   		'American Indian or Alaska Native':aian, 
   		'Native Hawaiian or Other Pacific Islander':pacific
   	}).addTo(map);
+
+  	unknown.addTo(map)
+  	white.addTo(map)
+  	black.addTo(map)
+  	asian.addTo(map)
+  	aian.addTo(map)
+  	pacific.addTo(map)
 }
 
 
